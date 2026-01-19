@@ -10,41 +10,36 @@ import os
 # =============================================
 
 try:
-    import streamlit as st
-    # Check if we are running on Streamlit Cloud or have secrets
+ import streamlit as st
+
+# =============================================
+# DATABASE CONFIGURATION
+# =============================================
+try:
     if 'postgres' in st.secrets:
+        # Pour Streamlit Cloud
         DB_CONFIG = {
             'host': st.secrets.postgres.host,
             'port': st.secrets.postgres.port,
             'database': st.secrets.postgres.database,
             'user': st.secrets.postgres.user,
-            'password': st.secrets.postgres.password
+            'password': st.secrets.postgres.password,
+            'sslmode': 'require'
         }
     else:
-        # Local development defaults
+        # Pour le développement local
         DB_CONFIG = {
-            'host': 'localhost',
+            'host': 'ep-solitary-water-ah297ypv-pooler.c-3.us-east-1.aws.neon.tech',
             'port': 5432,
-            'database': 'examdb',
-            'user': 'postgres',
-            'password': '2003'
+            'database': 'neondb',
+            'user': 'neondb_owner',
+            'password': 'npg_nyDf3NdvmW6s',
+            'sslmode': 'require'
         }
-import psycopg2
+except Exception as e:
+    print(f"Erreur config DB: {e}")
+    DB_CONFIG = None
 
-conn = psycopg2.connect(
-    host="ep-solitary-water-ah297ypv-pooler.c-3.us-east-1.aws.neon.tech",
-    database="neondb",
-    user="neondb_owner",
-    password="npg_nyDf3NdvmW6s",
-    sslmode="require"
-)
-
-cur = conn.cursor()
-cur.execute("SELECT current_database();")
-print(cur.fetchone())
-
-cur.close()
-conn.close()
 
 
 # =============================================
