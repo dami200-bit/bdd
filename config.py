@@ -29,15 +29,23 @@ try:
             'user': 'postgres',
             'password': '2003'
         }
-except Exception:
-    # Fallback to local if streamlit is not installed or secrets not found
-    DB_CONFIG = {
-        'host': 'localhost',
-        'port': 5432,
-        'database': 'examdb',
-        'user': 'postgres',
-        'password': '2003'
-    }
+import psycopg2
+
+conn = psycopg2.connect(
+    host="ep-solitary-water-ah297ypv-pooler.c-3.us-east-1.aws.neon.tech",
+    database="neondb",
+    user="neondb_owner",
+    password="npg_dw6KkIs9umGO",
+    sslmode="require"
+)
+
+cur = conn.cursor()
+cur.execute("SELECT current_database();")
+print(cur.fetchone())
+
+cur.close()
+conn.close()
+
 
 # =============================================
 # APPLICATION SETTINGS
