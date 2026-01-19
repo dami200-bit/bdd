@@ -35,7 +35,7 @@ conn = psycopg2.connect(
     host="ep-solitary-water-ah297ypv-pooler.c-3.us-east-1.aws.neon.tech",
     database="neondb",
     user="neondb_owner",
-    password="npg_dw6KkIs9umGO",
+    password="npg_nyDf3NdvmW6s",
     sslmode="require"
 )
 
