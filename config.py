@@ -1,21 +1,13 @@
 # =============================================
 # CONFIGURATION FILE
 # =============================================
-import sys
-
 import os
 
 # =============================================
 # DATABASE CONFIGURATION
 # =============================================
-
 try:
- import streamlit as st
-
-# =============================================
-# DATABASE CONFIGURATION
-# =============================================
-try:
+    import streamlit as st
     if 'postgres' in st.secrets:
         # Pour Streamlit Cloud
         DB_CONFIG = {
@@ -39,7 +31,6 @@ try:
 except Exception as e:
     print(f"Erreur config DB: {e}")
     DB_CONFIG = None
-
 
 
 # =============================================
