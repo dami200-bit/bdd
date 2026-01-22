@@ -25,7 +25,7 @@ try:
             'port': 5432,
             'database': 'neondb',
             'user': 'neondb_owner',
-            'password': 'npg_nyDf3NdvmW6s',
+            'password': 'npg_vCQZyE5f6YTc',
             'sslmode': 'require'
         }
 except Exception as e:
