@@ -23,7 +23,7 @@ try:
         DB_CONFIG = {
             'host': 'ep-billowing-base-ahcec2a0-pooler.c-3.us-east-1.aws.neon.tech',
             'port': 5432,
-            'database': 'neondb',
+            'database': 'examdb',
             'user': 'neondb_owner',
             'password': 'npg_vCQZyE5f6YTc',
             'sslmode': 'require'
