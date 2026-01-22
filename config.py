@@ -21,7 +21,7 @@ try:
     else:
         # Pour le développement local
         DB_CONFIG = {
-            'host': 'ep-solitary-water-ah297ypv-pooler.c-3.us-east-1.aws.neon.tech',
+            'host': 'ep-billowing-base-ahcec2a0-pooler.c-3.us-east-1.aws.neon.tech',
             'port': 5432,
             'database': 'neondb',
             'user': 'neondb_owner',
